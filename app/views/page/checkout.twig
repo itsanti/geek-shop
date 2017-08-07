@@ -1,0 +1,65 @@
+{% extends 'layouts/base.twig' %}
+{% block title %} Checkout page {% endblock %}
+{% block content %}
+    <main class="checkout">
+        <section class="checkout__section {% if not is_auth %} checkout__section_current {% endif %} ship-address">
+            <h2 class="checkout__section_title">01. Shipping address</h2>
+            {% if not is_auth %}
+                <div class="ship-address-register">
+                    <h3 class="ship-address-register__title">Check as a guest or register</h3>
+                    <p>Register with us for future convenience</p>
+
+                    <ul class="ship-address-register__radio radio">
+                        <li class="radio__li">
+                            <input class="radio__input" type="radio" id="as_guest" name="selector">
+                            <label class="radio__label" for="as_guest">Checkout as guest</label>
+                            <div class="radio__check"></div>
+                        </li>
+                        <li class="radio__li">
+                            <input class="radio__input" type="radio" id="as_register" name="selector" checked>
+                            <label class="radio__label" for="as_register">Register</label>
+                            <div class="radio__check"></div>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                    <p class="ship-address-register__title">Register and save time!</p>
+                    <p>Register with us for future convenience</p>
+                    <br><br>
+                    <p>>> Fast and easy checkout</p>
+                    <p>>> Easy access to your order history and status</p>
+                    <a href="#" class="button ship-address-register__continue">Continue</a>
+                </div>
+                <div class="ship-address-login">
+                    <form action="/auth" method="post">
+                        <h3 class="ship-address-login__title">Already registered?</h3>
+                        <p>Please log in below</p>
+                        <br><br>
+                        <label for="login" class="ship-address-login__label">Login <span class="ship-address-login__required">*</span></label>
+                        <input id="login" type="text" name="login" class="ship-address-login__input input" required>
+                        <label for="password" class="ship-address-login__label">Password <span class="ship-address-login__required">*</span></label>
+                        <input id="password" type="password" name="password" class="ship-address-login__input input" required>
+                        <p class="ship-address-login__required">* Required Fields</p>
+                        <button class="ship-address-login__submit button">Log in</button>
+                        <a href="#" class="ship-address-login__forgot">Forgot Password?</a>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            {% endif %}
+        </section>
+        <section class="checkout__section bill-info">
+            <h2 class="checkout__section_title">02. Billing information</h2>
+        </section>
+        <section class="checkout__section ship-info">
+            <h2 class="checkout__section_title">03. Shipping information</h2>
+        </section>
+        <section class="checkout__section ship-method">
+            <h2 class="checkout__section_title">04. Shipping method</h2>
+        </section>
+        <section class="checkout__section payment-method">
+            <h2 class="checkout__section_title">05. Payment method</h2>
+        </section>
+        <section class="checkout__section order-review">
+            <h2 class="checkout__section_title">06. Order review</h2>
+        </section>
+    </main>
+{% endblock %}

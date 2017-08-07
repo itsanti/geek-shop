@@ -1,0 +1,102 @@
+{% extends 'layouts/base.twig' %}
+{% block title %} Product page {% endblock %}
+{% block header_javascript %}
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/nouislider.js"></script>
+    <script src="/js/wNumb.js"></script>
+    <script src="/js/dropdown.js"></script>
+{% endblock %}
+{% block content %}
+    <main>
+        <div class="carousel">
+            <button class="carousel__btn carousel__btn_left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+            <img class="carousel__img" src="/img/carousel-img.png" alt="carousel-img">
+            <button class="carousel__btn carousel__btn_right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="goods-wrapper">
+            <div class="goods">
+                <div class="goods__category">
+                    women collection
+                    <div></div>
+                </div>
+                <p class="goods__name">{{ product.title }}</p>
+                <br><br><br><br>
+                <p class="goods__desc">{{ product.description }}</p>
+                <br>
+                <span class="goods__material">Material:<span class="goods__material_bold">Cotton</span></span><span class="goods__designer">Designer:<span class="goods__designer_bold">Binburhan</span></span>
+                <br><br><br>
+                <p class="goods__price">${{ product.price }}</p>
+                <br><br>
+                <hr>
+                <form action="/order/add" method="post">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                    <div class="goods-choosing">
+                        <div class="choose">
+                            <div class="choose__select choose__color">
+                                <p>choose color</p>
+                                <div class="choose__select_select choose__color_select">
+                                    <span></span>
+                                    <ul class="dropdown">
+                                        <li><div class="dropdown__item dropdown__item_red"></div> Red</li>
+                                        <li><div class="dropdown__item dropdown__item_yellow"></div> Yellow</li>
+                                        <li><div class="dropdown__item dropdown__item_black"></div> Black</li>
+                                        <li><div class="dropdown__item dropdown__item_white"></div> White</li>
+                                        <li><div class="dropdown__item dropdown__item_blue"></div> Blue</li>
+                                        <li><div class="dropdown__item dropdown__item_green"></div> Green</li>
+                                        <li><div class="dropdown__item dropdown__item_orange"></div> Orange</li>
+                                    </ul>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="choose__select choose__size">
+                                <p>choose size</p>
+                                <div class="choose__select_select choose__size_select">
+                                    <span></span>
+                                    <ul class="dropdown">
+                                        <li>XXL</li>
+                                        <li>XL</li>
+                                        <li>L</li>
+                                        <li>M</li>
+                                        <li>S</li>
+                                        <li>XS</li>
+                                        <li>XSS</li>
+                                    </ul>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="choose__select">
+                                <p>quantity</p>
+                                <input type="number" class="choose__select_select choose__quantity" value="1">
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <a href="#" class="goods-choosing__add-to-cart" onclick="this.parentNode.parentNode.submit();"> Add to Cart
+                            <img src="/img/basket_small_bg.png" alt="basket_small">
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="recommended">
+        <header class="recommended__title">You may also like</header>
+        <div class="recommended__products">
+            {% for product in products %}
+                <div class="recommended__product product">
+                    {% include 'product/card.twig' with {"product": product} %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
+
+{% block footer_javascript %}
+    <script>
+        $(function() {
+            var dd1 = new DropDown( $('.choose__color_select') );
+            var dd2 = new DropDown( $('.choose__size_select') );
+            var dd3 = new DropDown( $('.choose__quantity_select') );
+        });
+    </script>
+{% endblock %}

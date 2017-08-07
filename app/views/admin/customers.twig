@@ -1,0 +1,41 @@
+{% extends 'admin/layout.twig' %}
+
+{% block title %}[Admin] Customers{% endblock %}
+
+{% block content %}
+<table class="table">
+    <caption>Customers list</caption>
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Login</th>
+        <th>ID</th>
+        <th>Is admin</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers %}
+        <form action="/customer/" method="post">
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>
+                    <input type="text" name="login" value="{{ customer['login'] }}">
+                </td>
+                <td>
+                    <input type="hidden" name="id" value="{{ customer['id'] }}">
+                    {{ customer['id'] }}
+                </td>
+                <td>
+                    <input type="text" name="is_admin" value="{{ customer['is_admin'] }}">
+                </td>
+                <td>
+                    <button type="submit" onclick="this.form.action += 'update'" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    <button type="submit" onclick="this.form.action += 'delete'" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+        </form>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

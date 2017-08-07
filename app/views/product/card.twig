@@ -1,0 +1,11 @@
+<a href="/product/{{ product['id'] }}" class="product__front">
+    <img src="{{ product['img_large'] }}" alt="{{ product['alt'] }}" class="product__bg">
+    <p class="product__name">{{ product['title'] }}</p>
+    <p class="product__price">${{ product['price'] }}</p>
+</a>
+<div class="product__mask">
+    <form action="/order/add" method="post">
+        {#<input type="hidden" name="product_id" value="{{ product['id'] }}">#}
+        <button class="product__button" data-id="{{ product['id'] }}"><img class="product__button_img" src="/img/basket_small.png" alt="basket_small"> Add to Cart</button>
+    </form>
+</div>

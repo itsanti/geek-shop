@@ -1,0 +1,31 @@
+<tr>
+    <td class="shoplist__firstcol">
+        <img class="shoplist-item__img" src="{{ product['img_small'] }}" alt="{{ product['alt'] }}">
+        <div class="shoplist-item__desc">
+            <a href="/product/{{ product['id'] }}" class="shoplist-item__name">{{ product['title'] }}</a><br>
+            <p class="shoplist-item__stars"><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                        --></p><br>
+            <p>Color: <span class="shoplist-item__prop">Red</span></p>
+            <p>Size: <span class="shoplist-item__prop">XXL</span></p>
+        </div>
+    </td>
+    <td>${{ product['price'] }}</td>
+    <form action="/order/delete" method="post">
+        <input type="hidden" name="product_id" value="{{ product['id'] }}">
+        <td>
+            <input type="number" class="shoplist__input" value="{{ product['number'] }}">
+        </td>
+        <td>Free</td>
+        <td>$300</td>
+        <td>
+            <button type="submit" class="shoplist__delete basket-item__delete">
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </button>
+        </td>
+    </form>
+</tr>

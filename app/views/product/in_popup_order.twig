@@ -1,0 +1,20 @@
+<form action="/order/delete" method="post">
+    <input type="hidden" value="{{ product['id'] }}" name="product_id">
+    <div class="basket-popup__item basket-item">
+        <img class="basket-item__img" src="{{ product['img_small'] }}" alt="{{ product['alt'] }}">
+        <a class="basket-item__desc" href="/product/{{ product['id'] }}">
+            <p class="basket-item__name">{{ product['title'] }}</p><br>
+            <p class="basket-item__stars"><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star" aria-hidden="true"></i><!--
+                            --><i class="fa fa-star-half-o" aria-hidden="true"></i><!--
+                        --></p><br>
+            <p class="basket-item__amount">{{ product['number'] }} <small>x</small> ${{ product['price'] }}</p>
+        </a>
+        <button type="submit" class="basket-item__delete">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+        </button>
+    </div>
+</form>

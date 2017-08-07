@@ -1,0 +1,255 @@
+<header class="header">
+    <a href="/" class="header__logo logo">
+        <img src="/img/logo.png" alt="logo" class="logo__img">
+        <p class="logo__name">Bran<span class="logo__name_d">d</span></p>
+    </a>
+    <div class="browse">
+        <p class="browse__btn lg-btn">Browse <i class="fa fa-caret-down" aria-hidden="true"></i></p>
+        <div class="browse__navblock popup-block">
+            <nav class="navigation">
+                <div class="navigation__section">
+                    <h4 class="navigation__title">Women</h4>
+                    <hr class="navigation__hr">
+                    <ul>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                    </ul>
+                </div>
+                <div class="navigation__section">
+                    <h4 class="navigation__title">Men</h4>
+                    <hr class="navigation__hr">
+                    <ul>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Bags/Purses</a></li>
+                    </ul>
+                </div>
+                <div class="navigation__section">
+                    <h4 class="navigation__title">Kids</h4>
+                    <hr class="navigation__hr">
+                    <ul>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Nightwear</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Shoes</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Beauty</a></li>
+                    </ul>
+                </div>
+                <div class="navigation__section">
+                    <h4 class="navigation__title">Accessories</h4>
+                    <hr class="navigation__hr">
+                    <ul>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                        <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <form class="search-form" action="#" name="searching" method="get">
+        <input class="search-form__input" type="search" title="search" placeholder="Search for Item...">
+        <button type="submit" class="search-form__submit">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </form>
+    <div class="my-account">
+        {{ user_name }} <i class="fa fa-caret-down my-account__caret" aria-hidden="true"></i>
+        <div class="my-account__links popup-block">
+            {% if not is_auth %}
+                <a class="my-account__link" href="/login">Login</a>
+                <a class="my-account__link" href="/register">Register</a>
+            {% endif %}
+            {% if is_admin %}
+                <a class="my-account__link" href="/admin">Admin panel</a>
+            {% endif %}
+            <a class="my-account__link" href="/order">Shopping Cart</a>
+            <a class="my-account__link" href="/checkout">Checkout</a>
+            {% if is_auth %}
+                <a class="my-account__link" href="/logout">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="basket">
+        <a class="basket__basket" href="/order">
+            <img src="/img/basket.png" alt="basket">
+            {% if products_number %}
+                <div class="basket__circle">{{ products_number }}</div>
+            {% endif %}
+        </a>
+        <div class="basket__popup-wrapper basket-popup-wrapper">
+            <div class="basket__popup basket-popup popup-block">
+
+                {% for ordered_product in ordered_products %}
+                    {% include 'product/in_popup_order.twig' with {"product": ordered_product} %}
+                {% endfor %}
+
+                <div class="clear"></div>
+
+                {% if ordered_products %}
+                    <div class="basket-popup__total">
+                        <p>Total <span class="basket-popup__total_price"> $500.00</span></p>
+                    </div>
+                {% endif %}
+                <a href="/checkout" class="basket-popup__payment">Checkout</a>
+                <a href="/order" class="basket-popup__payment">Go to cart</a>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="menu">
+    <ul class="menu__ul"><!--
+     --><li class="menu__item">
+            <a href="/" class="menu__link menu__link_active">Home</a>
+            <div class="menu__popup popup-block">
+                <nav class="navigation">
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Women</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Men</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Jackets/vests</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Kids</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Lux</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Featured</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Denim</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Leggings/Pants</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-popup__section navigation__section">
+                        <h4 class="navigation__title">Hot deals</h4>
+                        <hr class="navigation__hr">
+                        <ul>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                            <li class="navigation__item"><a class="navigation__link" href="#">Jackets/vests</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </li><!--
+            {% set menu = ['Men', 'Women', 'Kids', 'Accessories', 'Featured', 'Hot deals'] %}
+            {% for item in menu %}
+            --><li class="menu__item">
+                <a href="/catalog" class="menu__link">{{ item }}</a>
+                <div class="menu__popup popup-block">
+                    <nav class="navigation">
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Jackets/vests</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Tops</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweaters/Knits</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Jackets/Coats</a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Dresses</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Denim</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Leggings/Pants</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-popup__section navigation__section">
+                            <h4 class="navigation__title">{{ item }}</h4>
+                            <hr class="navigation__hr">
+                            <ul>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Tees/Tank tops</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Shirts/Polos</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweaters</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Sweatshirts/Hoodies</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Blazers</a></li>
+                                <li class="navigation__item"><a class="navigation__link" href="#">Jackets/vests</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </li><!--
+            {% endfor %}
+        --></ul>
+</nav>

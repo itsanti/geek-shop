@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/vendor/font-awesome.min.css">
+    <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+    <script src="/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="container" id="container">
+    <form class="auth_form" id="register" method="post" action="auth/register">
+        <h1>Registration</h1>
+
+        <label for="login">
+            <span>Login</span>
+            <input type="text" id="login" name="login">
+            <ul class="input-requirements">
+                <li>Minimum 3 symbols</li>
+                <li>Maximum 32 symbols</li>
+                <li>Login may contain only letters</li>
+            </ul>
+        </label>
+
+        <label for="password">
+            <span>Password</span>
+            <input type="password" id="password" name="password">
+            <ul class="input-requirements">
+                <li>Minimum 4 symbols</li>
+                <li>Maximum 32 symbols</li>
+                <li>Must contain at least one numeric and one capital letter</li>
+            </ul>
+        </label>
+
+        <label for="password2">
+            <span>Repeat password</span>
+            <input type="password" id="password2" name="password2">
+            <ul class="input-requirements">
+                <li>Passwords must be equal</li>
+            </ul>
+        </label>
+
+        <input type="submit" value="Register">
+    </form>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="js/register.js"></script>
+</div>
+</body>
+</html>

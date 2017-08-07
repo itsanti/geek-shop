@@ -1,0 +1,263 @@
+{% extends 'layouts/base.twig' %}
+{% block title %} Catalog page {% endblock %}
+{% block content %}
+    <main class="catalog">
+        <aside class="catalog-category">
+            <nav>
+                <ul>
+                    <li>
+                        <h3 id="cc__title1" class="catalog-category__title catalog-category__title_visible">Category <span class="catalog-category__caret"><i class="fa fa-caret-down" aria-hidden="true"></i></span></h3>
+                        <ul class="catalog-category__list">
+                            <li><a href="#" class="catalog-category__item">Accessories</a></li>
+                            <li><a href="#" class="catalog-category__item">Bags</a></li>
+                            <li><a href="#" class="catalog-category__item">Denim</a></li>
+                            <li><a href="#" class="catalog-category__item">Hoodies & Sweatshirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Jackets & Coats</a></li>
+                            <li><a href="#" class="catalog-category__item">Pants</a></li>
+                            <li><a href="#" class="catalog-category__item">Polos</a></li>
+                            <li><a href="#" class="catalog-category__item">Shirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Shoes</a></li>
+                            <li><a href="#" class="catalog-category__item">Shorts</a></li>
+                            <li><a href="#" class="catalog-category__item">Sweaters & Knits</a></li>
+                            <li><a href="#" class="catalog-category__item">T-Shirts</a></li>
+                            <li class="catalog-category__item_last"><a href="#" class="catalog-category__item">Tanks</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="catalog-category__title">Brand <span class="catalog-category__caret"><i class="fa fa-caret-down" aria-hidden="true"></i></span></h3>
+                        <ul class="catalog-category__list">
+                            <li><a href="#" class="catalog-category__item">Accessories</a></li>
+                            <li><a href="#" class="catalog-category__item">Bags</a></li>
+                            <li><a href="#" class="catalog-category__item">Denim</a></li>
+                            <li><a href="#" class="catalog-category__item">Hoodies & Sweatshirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Jackets & Coats</a></li>
+                            <li><a href="#" class="catalog-category__item">Shorts</a></li>
+                            <li><a href="#" class="catalog-category__item">Sweaters & Knits</a></li>
+                            <li><a href="#" class="catalog-category__item">T-Shirts</a></li>
+                            <li class="catalog-category__item_last"><a href="#" class="catalog-category__item">Tanks</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="catalog-category__title">Designer <span class="catalog-category__caret"><i class="fa fa-caret-down" aria-hidden="true"></i></span></h3>
+                        <ul class="catalog-category__list">
+                            <li><a href="#" class="catalog-category__item">Accessories</a></li>
+                            <li><a href="#" class="catalog-category__item">Bags</a></li>
+                            <li><a href="#" class="catalog-category__item">Denim</a></li>
+                            <li><a href="#" class="catalog-category__item">Hoodies & Sweatshirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Jackets & Coats</a></li>
+                            <li><a href="#" class="catalog-category__item">Pants</a></li>
+                            <li><a href="#" class="catalog-category__item">Polos</a></li>
+                            <li><a href="#" class="catalog-category__item">Shirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Shoes</a></li>
+                            <li><a href="#" class="catalog-category__item">Shorts</a></li>
+                            <li><a href="#" class="catalog-category__item">Sweaters & Knits</a></li>
+                            <li><a href="#" class="catalog-category__item">T-Shirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Polos</a></li>
+                            <li><a href="#" class="catalog-category__item">Shirts</a></li>
+                            <li><a href="#" class="catalog-category__item">Shoes</a></li>
+                            <li><a href="#" class="catalog-category__item">Shorts</a></li>
+                            <li class="catalog-category__item_last"><a href="#" class="catalog-category__item">Tanks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="catalog-main">
+            <div class="catalog-filter">
+                <div class="catalog-filter-trend">
+                    <form action="#" method="get">
+                        <label class="catalog-filter__title">Trending now</label>
+                        <ul>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Bohemian</button> <span class="catalog-filter-trend__item-pipe">|</span></li>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Floral</button> <span class="catalog-filter-trend__item-pipe">|</span></li>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Lace</button> <span class="catalog-filter-trend__item-pipe">|</span></li>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Floral</button> <span class="catalog-filter-trend__item-pipe">|</span></li>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Lace</button> <span class="catalog-filter-trend__item-pipe">|</span></li>
+                            <li class="catalog-filter-trend__item-li"><button class="catalog-filter-trend__item">Bohemian</button></li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="catalog-filter-size">
+                    <form action="#" method="get">
+                        <label class="catalog-filter__title">Size</label>
+                        <ul>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_xxs" name="size" class="catalog-filter-size__item"> XXS
+                                    <label for="size_xxs" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_xs" name="size" class="catalog-filter-size__item"> XS
+                                    <label for="size_xs" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_s" name="size" class="catalog-filter-size__item"> S
+                                    <label for="size_s" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_m" name="size" class="catalog-filter-size__item"> M
+                                    <label for="size_m" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_L" name="size" class="catalog-filter-size__item"> L
+                                    <label for="size_L" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_xl" name="size" class="catalog-filter-size__item"> XL
+                                    <label for="size_xl" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                            <li class="catalog-filter-size__item-li">
+                                <div class="catalog-filter-size__item-div">
+                                    <input type="checkbox" value="xxs" id="size_XXl" name="size" class="catalog-filter-size__item"> XXL
+                                    <label for="size_XXl" class="catalog-filter-size__item-label"></label>
+                                </div>
+                            </li>
+                         </ul>
+                    </form>
+                </div>
+                <div class="catalog-filter-price">
+                    <form action="#" method="get">
+                        <label class="catalog-filter__title">Price</label>
+                        <div id="slider" class="slider"></div>
+                        <span id="slider-margin-value-min"></span> <span id="slider-margin-value-max"></span>
+                    </form>
+                </div>
+                <div class="clear"></div>
+                <div class="catalog-filter-sort">
+                    <div class="catalog-filter-sort-by">Sort By</div>
+                    <div id="sort-by" class="choose__select_select">
+                        <span></span>
+                        <ul class="dropdown">
+                            <li>Name</li>
+                            <li>Price</li>
+                            <li>Rating</li>
+                            <li>Views</li>
+                        </ul>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="catalog-filter-sort-show">Show</div>
+                    <div id="show" class="choose__select_select">
+                        <span></span>
+                        <ul class="dropdown">
+                            <li>10</li>
+                            <li>25</li>
+                            <li>50</li>
+                            <li>100</li>
+                        </ul>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="catalog-content">
+                {% for product in products %}
+                    <div class="catalog-content__product product">
+                        {% include 'product/card.twig' with {"product": product} %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="clear"></div>
+            <div class="catalog-pages">
+                <div class="pagination">
+                    <a href="#" class="pagination__item"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                    <a href="#" class="pagination__item pagination__item_active">1</a>
+                    <a href="#" class="pagination__item">2</a>
+                    <a href="#" class="pagination__item">3</a>
+                    <a href="#" class="pagination__item">4</a>
+                    <a href="#" class="pagination__item">5</a>
+                    <a href="#" class="pagination__item">6</a>
+                    .....
+                    <a href="#" class="pagination__item">20</a>
+                    <a href="#" class="pagination__item"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <a href="#" class="view-all">View All</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </main>
+    <aside class="coffer">
+        <article class="coffer__benefit benefit">
+            <img src="/img/offer_icon1.png" alt="offer_icon1" class="coffer__img benefit__img">
+            <h3 class="coffer__title benefit__title">Free Delivery</h3>
+            <p class="coffer__text benefit__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </article>
+        <article class="coffer__benefit benefit">
+            <img src="/img/offer_icon2.png" alt="offer_icon2" class="coffer__img benefit__img">
+            <h3 class="coffer__title benefit__title">Sales & discounts</h3>
+            <p class="coffer__text benefit__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </article>
+        <article class="coffer__benefit benefit">
+            <img src="/img/offer_icon3.png" alt="offer_icon3" class="coffer__img benefit__img">
+            <h3 class="coffer__title benefit__title">Quality assurance</h3>
+            <p class="coffer__text benefit__text">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </article>
+    </aside>
+{% endblock %}
+
+{% block footer_javascript %}
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/wNumb.js"></script>
+    <script src="/js/nouislider.js"></script>
+    <script src="/js/dropdown.js"></script>
+    <script>
+        var slider = document.getElementById('slider');
+        var marginMin = document.getElementById('slider-margin-value-min'),
+            marginMax = document.getElementById('slider-margin-value-max');
+
+        noUiSlider.create(slider, {
+            start: [52, 400],
+            connect: true,
+            behaviour: 'drag-tap',
+            step: 1,
+            range: {
+                'min': -14,
+                'max': 714
+            },
+            padding: 14,
+            format: wNumb({
+                decimals: 0,
+                prefix: '$'
+            })
+        });
+
+        slider.noUiSlider.on('update', function ( values, handle ) {
+            if ( handle ) {
+                marginMax.innerHTML = values[handle];
+            } else {
+                marginMin.innerHTML = values[handle];
+            }
+        });
+    </script>
+    <script>
+        $('#cc__title1').next().delay(500).slideToggle(500);
+        $(".catalog-category__title").click(function() {
+            $(this).next().slideToggle(500);
+            if ($(this).hasClass('catalog-category__title_visible')) {
+                $(this).removeClass('catalog-category__title_visible');
+            } else {
+                $(this).addClass('catalog-category__title_visible');
+            }
+        });
+    </script>
+    <script>
+        $(function() {
+            var dd1 = new DropDown( $('#sort-by') );
+            var dd2 = new DropDown( $('#show') );
+        });
+    </script>
+{% endblock %}
+
+{% block header_css %}
+    <link rel="stylesheet" href="/css/vendor/nouislider.css">
+{% endblock %}

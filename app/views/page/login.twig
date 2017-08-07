@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/vendor/font-awesome.min.css">
+    <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+    <script src="/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h3 class="message">{{ message }}</h3>
+        <br>
+        <form class="auth_form" id="login_form" method="post" action="/auth">
+            <h1>Authorization</h1>
+            <label for="login">
+                <span>Login</span>
+                <input type="text" id="login" name="login">
+            </label>
+
+            <label for="password">
+                <span>Password</span>
+                <input type="password" id="password" name="password">
+            </label>
+
+            <ul class="input-requirements" id="required">
+                <li>All fields must not be empty, minimum 3 symbols</li>
+            </ul>
+
+            <input type="submit" value="Login">
+            <a href="#" class="link" id="forgot_link">Forgot Password?</a>
+            <a href="/register" class="link" id="register_link">Registration</a>
+            <div class="clear"></div>
+        </form>
+    </div>
+    <link rel="stylesheet" href="/css/auth.css">
+    <script src="js/login.js"></script>
+</body>
+</html>

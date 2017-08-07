@@ -1,0 +1,86 @@
+{% extends 'admin/layout.twig' %}
+
+{% block title %}[Admin] Products{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <caption>Product list</caption>
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>Alt</th>
+            <th>Description</th>
+            <th>ID</th>
+            <th>Price</th>
+            <th>Image large</th>
+            <th>Image small</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+            <form action="/product/create" method="post">
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="text" name="product_title" placeholder="New product title...">
+                    </td>
+                    <td>
+                        <input type="text" name="product_alt" placeholder="New alternative of product...">
+                    </td>
+                    <td>
+                        <input type="text" name="product_desc" placeholder="New product description...">
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="text" name="product_price" placeholder="New product price...">
+                    </td>
+                    <td>
+                        <input type="text" name="product_img_large" placeholder="New image large path...">
+                    </td>
+                    <td>
+                        <input type="text" name="product_img_small" placeholder="New image small path...">
+                    </td>
+                    <td>
+                        <button type="submit" title="Add"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+            </form>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            {% for product in products %}
+                <form action="/product/" method="post">
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <input type="text" name="product_title" value="{{ product['title'] }}">
+                        </td>
+                        <td>
+                            <input type="text" name="product_alt" value="{{ product['alt'] }}">
+                        </td>
+                        <td>
+                            <input type="text" name="product_desc" value="{{ product['description'] }}">
+                        </td>
+                        <td>
+                            <input type="hidden" name="product_id" value="{{ product['id'] }}">
+                            {{ product['id'] }}
+                        </td>
+                        <td>
+                            <input type="text" name="product_price" value="{{ product['price'] }}">
+                        </td>
+                        <td>
+                            <input type="text" name="product_img_large" value="{{ product['img_large'] }}">
+                        </td>
+                        <td>
+                            <input type="text" name="product_img_small" value="{{ product['img_small'] }}">
+                        </td>
+                        <td>
+                            <button type="submit" onclick="this.form.action += 'update'" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                            <button type="submit" onclick="this.form.action += 'delete'" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                </form>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

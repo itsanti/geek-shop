@@ -1,0 +1,58 @@
+{% if layout %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    {% block header_css %}{% endblock %}
+    <script src="/js/jquery.min.js"></script>
+    {% block header_javascript %}{% endblock %}
+</head>
+<body>
+
+    <div class="container-main">
+        {% include 'layouts/header.twig' %}
+
+        {% if breadcrumbs %}
+            {% include 'layouts/breadcrumbs.twig' %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
+        {% include 'layouts/footer.twig' %}
+    </div>
+
+    <script>
+
+    (function(){
+
+      $('#category .cat-item').on('click', function(){
+        location.replace('/catalog');
+      });
+
+
+      $('#quote1, #quote3').hide();
+      $('#quote2').fadeIn('slow');
+      $('#quote-button2').addClass('quotes-buttons__button_active');
+
+
+      $('.quotes-buttons').on('click', 'div', function(){
+        $('.quotes-buttons__button').removeClass('quotes-buttons__button_active');
+        $(this).addClass('quotes-buttons__button_active');
+        $('.subscribe__quote').hide();
+        $('#quote'+($(this).index()+1)).fadeIn('slow');
+      });
+
+    })();
+
+    </script>
+    {% block footer_javascript %}{% endblock %}
+</body>
+</html>
+{% endif %}

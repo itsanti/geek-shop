@@ -1,0 +1,100 @@
+{% extends 'layouts/base.twig' %}
+{% block title %} Shop basket page {% endblock %}
+
+{% block content %}
+    {% if not message %}
+        <main class="shoptable">
+
+                <table class="shoplist">
+                    <colgroup>
+                        <col class="shoplist__firstcolumn">
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead class="shoplist__thead">
+                    <tr>
+                        <th class="shoplist__firstcol">Product details</th>
+                        <th>Unite price</th>
+                        <th>Quantity</th>
+                        <th>Shipping</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody class="shoplist_tbody">
+                        {% for ordered_product in ordered_products %}
+                            {% include 'product/in_order.twig' with {"product": ordered_product} %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <form action="/order/clear" method="post">
+                    <a href="#" class="button shopping-clear" onclick="this.parentNode.submit();">Clear shopping cart</a>
+                </form>
+                <a href="/catalog" class="button shopping-continue">Continue shopping</a>
+                <div class="clear"></div>
+                <div class="shoptable__form shipping-address">
+                    <h3 class="shipping-address__title">Shipping address</h3>
+                    <div class="select-wrapper">
+                        <select class="shipping-address__select input">
+                            <option value="AX">AALAND ISLANDS</option>
+                            <option value="AF">AFGHANISTAN</option>
+                            <option value="AL">ALBANIA</option>
+                            <option value="DZ">ALGERIA</option>
+                            <option value="ER">ERITREA</option>
+                            <option value="EE">ESTONIA</option>
+                            <option value="GH">GHANA</option>
+                            <option value="GI">GIBRALTAR</option>
+                            <option value="GR">GREECE</option>
+                            <option value="KI">KIRIBATI</option>
+                            <option value="YT">MAYOTTE</option>
+                            <option value="MX">MEXICO</option>
+                            <option value="NI">NICARAGUA</option>
+                            <option value="NE">NIGER</option>
+                            <option value="NG">NIGERIA</option>
+                            <option value="QA">QATAR</option>
+                            <option value="RE">REUNION</option>
+                            <option value="RO">ROMANIA</option>
+                            <option selected value="RU">Russian Federation</option>
+                            <option value="RW">RWANDA</option>
+                            <option value="SH">SAINT HELENA</option>
+                            <option value="KN">SAINT KITTS AND NEVIS</option>
+                            <option value="LC">SAINT LUCIA</option>
+                            <option value="PM">SAINT PIERRE AND MIQUELON</option>
+                            <option value="VC">SAINT VINCENT AND THE GRENADINES</option>
+                            <option value="WS">SAMOA</option>
+                            <option value="SL">SIERRA LEONE</option>
+                            <option value="SG">SINGAPORE</option>
+                            <option value="SK">SLOVAKIA</option>
+                            <option value="SI">SLOVENIA</option>
+                        </select>
+                        <i class="fa fa-caret-down shipping-address__select_caret" aria-hidden="true"></i>
+                    </div>
+                    <input type="text" placeholder="State" class="shipping-address__state input">
+                    <input type="number" placeholder="Postcode / Zip" class="shipping-address__zip input">
+                    <a href="#" class="button shipping-address__getquote">Get a quote</a>
+                </div>
+                <div class="shoptable__form coupon-discount">
+                    <h3 class="coupon-discount__title">Coupon discount</h3>
+                    <p>Enter your coupon code if you have one</p>
+                    <input type="text" placeholder="Coupon code" class="coupon-discount__input input">
+                    <a href="#" class="button coupon-discount__apply">Apply coupon</a>
+                </div>
+                <div class="shoptable__form grand-total">
+                    <p>Sub total <span class="grand-total__sub">$900</span></p>
+                    <p class="grand-total__grand">Grand total <span class="grand-total__price">$900</span></p>
+                    <hr class="grand-total__hr">
+                    <form action="/order/proceed" method="post">
+                      <button type="submit" class="button grand-total__apply">Proceed to checkout</button>
+                    </form>
+
+                </div>
+
+            <div class="clear"></div>
+        </main>
+    {% else %}
+        <h3 class="shoplist-empty">{{ message }}</h3>
+    {% endif %}
+{% endblock %}

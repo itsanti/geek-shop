@@ -1,0 +1,33 @@
+{% extends 'admin/layout.twig' %}
+
+{% block title %}[Admin] Category{% endblock %}
+
+{% block content %}
+<form action="category/create" method="post" class="createForm">
+  <div class="form-group">
+    <label for="ancestor">Select parent category</label>
+    <select name="ancestor_id" id="ancestor" required class="form-control">
+        {% for category in categories %}
+            {% if category['level'] == 0 %}
+                {% set color = "red" %}
+                {% set weight = "bold" %}
+            {% elseif category['level'] == 1 %}
+                {% set color = "black" %}
+                {% set weight = "bold" %}
+            {% else %}
+                {% set color = "black" %}
+                {% set weight = "normal" %}
+            {% endif %}
+            <option value="{{ category['id'] }}" style="color: {{ color }}; font-weight: {{ weight }};">
+                {{ category['title'] }}
+            </option>
+        {% endfor %}
+    </select>
+  </div>
+    <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" required class="form-control">
+    <input type="submit" value="Create" class="btn btn-primary">
+  </div>
+</form>
+{% endblock %}
